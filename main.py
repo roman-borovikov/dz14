@@ -10,5 +10,5 @@ parser = bs4.BeautifulSoup(req.text, 'lxml')
 y = parser.findAll('a', href=True, text=True)
 with open('output.txt', 'wt') as f:
     for result in y:
-        print('h1 tag', 'link_text', result['href'])
-        f.write('h1 tag' + 'link_text' + result['href'])
+        print('a tag', 'link_text', result['href'])
+        f.write('a tag' + 'link_text' + result['href'])
