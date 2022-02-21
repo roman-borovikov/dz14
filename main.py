@@ -7,5 +7,6 @@ print(req)
 parser = bs4.BeautifulSoup(req.text, 'lxml')
 #Выделим все заголовки четвертого уровня - тег h4:
 y = parser.findAll('a', href=True, text=True)
-for result in y:
-    print('h1 tag','link_text',result['href'])
+with open('output.txt','wt') as f:
+    for result in y:
+        f.write('h1 tag'+'link_text'+result['href'])
