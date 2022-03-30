@@ -1,3 +1,10 @@
+import telebot
+from telebot import apihelper
+import time
+import os
+
+TOKEN = '716618019:AAFnQ5Qqokl3MX-Y6xaAhhjnb1dM_RtTC0c'
+
 # Распарсить из статьи https://en.wikipedia.org/wiki/Bias-variance_tradeoff все заголовки верхнего уровня
 import requests
 import bs4
