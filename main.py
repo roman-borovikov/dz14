@@ -25,7 +25,10 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "Howdy, how are you doing?")
+    bot.reply_to(message, "Howdy, how are you doing?here is django news enjoy!")
+@bot.message_handler(commands=['help'])
+def send_welcome(message):
+    bot.reply_to(message, "Hhi, ")
 
 
 # Обработка команд
