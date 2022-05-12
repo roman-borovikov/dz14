@@ -3,6 +3,18 @@ from telebot import apihelper
 import time
 import os
 import lxml
+import requests
+import bs4
+print('Новости по djano:')
+req = requests.get('http://pythondigest.ru/feed/?q=django', verify=False)
+print(req)
+parser = bs4.BeautifulSoup(req.text, 'lxml')
+# Выделим все заголовки четвертого уровня - тег h4:
+y = parser.findAll('a', href=True, text=True)
+with open('output.txt', 'wt') as f:
+    for result in y:
+        print('a tag', 'link_text', result['href'])
+        f.write('a tag' + 'link_text' + result['href'])
 
 TOKEN = '5104499235:AAGjjITZrGPy8A_ooIdqxdrZoCTFSU2YYt8'
 MAIN_URL = f'https://api.telegram.org/bot{TOKEN}'
