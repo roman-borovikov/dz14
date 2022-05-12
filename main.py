@@ -5,30 +5,27 @@ import os
 import lxml
 
 TOKEN = '5104499235:AAGjjITZrGPy8A_ooIdqxdrZoCTFSU2YYt8'
+MAIN_URL = f'https://api.telegram.org/bot{TOKEN}'
 
-# Распарсить из статьи https://en.wikipedia.org/wiki/Bias-variance_tradeoff все заголовки верхнего уровня
-import requests
-import bs4
+# Информация о боте
+url = f'{MAIN_URL}/getMe'
 
-print('Новости по djano:')
-req = requests.get('http://pythondigest.ru/feed/?q=django', verify=False)
-print(req)
-parser = bs4.BeautifulSoup(req.text, 'lxml')
-# Выделим все заголовки четвертого уровня - тег h4:
-y = parser.findAll('a', href=True, text=True)
-with open('output.txt', 'wt') as f:
-    for result in y:
-        print('a tag', 'link_text', result['href'])
-        f.write('a tag' + 'link_text' + result['href'])
+print(url)
+
+proxies = {
+    'http': 'http://167.86.96.4:3128',
+    'https': 'http://167.86.96.4:3128',
+}
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36'
+}
 bot = telebot.TeleBot(TOKEN)
 
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "Howdy, how are you doing?here is django news enjoy!")
-@bot.message_handler(commands=['help'])
-def send_welcome(message):
-    bot.reply_to(message, "Hhi, ")
+    bot.reply_to(message, "Howdy, how are you doing?")
 
 
 # Обработка команд
