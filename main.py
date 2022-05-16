@@ -26,13 +26,11 @@ def index():
     def index():
         #
         main_data = {
-            'a': 'A',
-            'b': 'B',
-            'c': 'C'
+
         }
 
         context = {
-            'name': 'Leo',
+            'name': 'roman.borovikov',
             'age': 99
         }
     return render_template('index.html', main_data=main_data, **context)
