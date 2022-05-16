@@ -10,7 +10,7 @@ import requests
 import bs4
 @app.route("/")
 def index():
-    #
+
     main_data = {
         'a': 'A',
         'b': 'B',
