@@ -8,6 +8,22 @@ import os
 import lxml
 import requests
 import bs4
+@app.route("/")
+def index():
+    #
+    main_data = {
+        'a': 'A',
+        'b': 'B',
+        'c': 'C'
+    }
+
+    context = {
+        'name': 'Leo',
+        'age': 99
+    }
+
+    return render_template('index.html', main_data=main_data, **context)
+    # return render_template('index.html', main_data=main_data, name='Leo', age=99)
 print('Новости по djano:')
 req = requests.get('http://pythondigest.ru/feed/?q=django', verify=False)
 print(req)
@@ -108,5 +124,6 @@ def send_sticker(message):
     bot.send_sticker(message.chat.id, FILE_ID)
 
 
-bot.polling()
+if __name__ == "__main__":
+    app.run(debug=True)
 
