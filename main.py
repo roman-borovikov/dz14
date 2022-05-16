@@ -36,6 +36,23 @@ def index():
             'age': 99
         }
     return render_template('index.html', main_data=main_data, **context)
+
+    @app.route('/contacts/')
+    def contacts():
+        # где то взяли данные
+        developer_name = 'roman.borovikov'
+        # Контекст name=developer_name - те данные, которые мы передаем из view в шаблон
+        # context = {'name': developer_name}
+        # Словарь контекста context
+        # return render_template('contacts.html', context=context)
+        return render_template('contacts.html', name=developer_name, creation_date='16.05.2022')
+
+    @app.route('/results/')
+    def results():
+        data = ['python', 'js', 'java', 'sql', 'lua']
+        # data = []
+        return render_template('results.html', data=data)
+
     # return render_template('index.html', main_data=main_data, name='Leo', age=99)
 print('Новости по djano:')
 req = requests.get('http://pythondigest.ru/feed/?q=django', verify=False)
