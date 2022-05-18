@@ -35,7 +35,16 @@ def index():
         }
     return render_template('index.html', main_data=main_data, **context)
 
-    @app.route('/contacts/')
+@app.route('/contacts/')
+def contacts():
+    # где то взяли данные
+    developer_name = 'Leo'
+    # Контекст name=developer_name - те данные, которые мы передаем из view в шаблон
+    # context = {'name': developer_name}
+    # Словарь контекста context
+    # return render_template('contacts.html', context=context)
+    return render_template('contacts.html', name=developer_name, creation_date='16.01.2020')
+
     def contacts():
         # где то взяли данные
         developer_name = 'roman.borovikov'
