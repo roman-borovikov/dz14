@@ -60,6 +60,17 @@ def contacts():
         # data = []
         return render_template('results.html', data=data)
 
+    @app.route('/run/', methods=['GET'])
+    def run_get():
+        with open('main.txt', 'r') as f:
+            text = f.read()
+        return render_template('form.html', text=text)
+    @app.route('/results/')
+    def results():
+        data = ['python', 'js', 'java', 'sql', 'lua']
+        # data = []
+        return render_template('results.html', data=data)
+
     # return render_template('index.html', main_data=main_data, name='Leo', age=99)
 print('Новости по djano:')
 req = requests.get('http://pythondigest.ru/feed/?q=django', verify=False)
