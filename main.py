@@ -30,8 +30,7 @@ def index():
         }
 
         context = {
-            'name': 'roman.borovikov',
-            'age': 99
+
         }
     return render_template('index.html', main_data=main_data, **context)
 
@@ -43,22 +42,23 @@ def contacts():
     # context = {'name': developer_name}
     # Словарь контекста context
     # return render_template('contacts.html', context=context)
-    return render_template('contacts.html', name=developer_name, creation_date='16.01.2020')
+    return render_template('contacts.html', name= 'roman.borovikov', creation_date='16.01.2020')
 
     def contacts():
         # где то взяли данные
-        developer_name = 'roman.borovikov'
+        name = 'roman.borovikov'
         # Контекст name=developer_name - те данные, которые мы передаем из view в шаблон
         # context = {'name': developer_name}
         # Словарь контекста context
         # return render_template('contacts.html', context=context)
-        return render_template('contacts.html', name=developer_name, creation_date='16.05.2022')
+        return render_template('contacts.html', name= 'roman.borovikov', creation_date='16.05.2022')
 
     @app.route('/results/')
     def results():
         data = ['python', 'js', 'java', 'sql', 'lua']
         # data = []
         return render_template('results.html', data=data)
+
 
     @app.route('/run/', methods=['GET'])
     def run_get():
