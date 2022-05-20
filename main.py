@@ -25,9 +25,54 @@ def index():
 
     def index():
         #
-        main_data = {
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         context = {
 
@@ -35,6 +80,13 @@ def index():
     return render_template('index.html', main_data=main_data, **context)
 
 @app.route('/contacts/')
+
+
+
+
+
+
+
 def contacts():
     # где то взяли данные
     developer_name = 'Leo'
@@ -60,16 +112,14 @@ def contacts():
         return render_template('results.html', data=data)
 
 
-    @app.route('/run/', methods=['GET'])
-    def run_get():
-        with open('main.txt', 'r') as f:
-            text = f.read()
-        return render_template('form.html', text=text)
-    @app.route('/results/')
-    def results():
-        data = ['python', 'js', 'java', 'sql', 'lua']
-        # data = []
-        return render_template('results.html', data=data)
+@app.route('/run/', methods=['GET'])
+def run_get():
+    return render_template('form.html', text='text')
+@app.route('/results/')
+def results():
+    data = ['python', 'js', 'java', 'sql', 'lua']
+    # data = []
+    return render_template('results.html', data=data)
 
     # return render_template('index.html', main_data=main_data, name='Leo', age=99)
 print('Новости по djano:')
