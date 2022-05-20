@@ -114,7 +114,7 @@ def contacts():
 
 @app.route('/run/', methods=['GET'])
 def run_get():
-    return render_template('form.html', text='text')
+    return render_template('form.html', text='django')
 @app.route('/results/')
 def results():
     data = ['python', 'js', 'java', 'sql', 'lua']
